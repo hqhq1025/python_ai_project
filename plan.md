@@ -112,6 +112,7 @@
   - 当前 epoch / 总 epoch
   - train_loss、val_acc
   - 估计所需时间（可以大致用 epoch 耗时估计）
+- [SHOULD] 支持提前停止（early stopping），如 `--early-stop-patience` 控制 val 指标连续若干 epoch 无提升时终止训练
 - [SHOULD] 在 `utils.py` 中实现：
   - 计算模型参数量的函数（`count_parameters(model)`）
   - 保存/加载 checkpoint 的通用函数
@@ -183,4 +184,3 @@
 ---
 
 后续执行过程中，如有新想法或需求变化，可以在不打乱大结构的前提下，对本 `plan.md` 中各阶段的细节任务进行增删与标记（例如标注已完成、延期等），但建议保持阶段划分和优先级标记不变，以方便跟踪进度。
-

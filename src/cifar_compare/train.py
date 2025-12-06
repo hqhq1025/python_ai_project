@@ -63,6 +63,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--wandb-project", type=str, default="cifar-compare", help="wandb 项目名")
     parser.add_argument("--wandb-run-name", type=str, default=None, help="wandb 运行名称")
     parser.add_argument("--resume", type=str, default=None, help="从 checkpoint 恢复训练（支持 best/last）")
+    parser.add_argument("--early-stop-patience", type=int, default=0, help="连续多少个 epoch 无 val 提升就停止（<=0 禁用）")
     return parser.parse_args()
 
 
@@ -181,6 +182,8 @@ def main():
         print(f"Start epoch {start_epoch} > total epochs {args.epochs}, nothing to do.")
         return
 
+    early_stop_patience = max(args.early_stop_patience, 0)
+    no_improve_epochs = 0
     for epoch in range(start_epoch, args.epochs + 1):
         start = time.time()
         train_loss = train_one_epoch(model, train_loader, optimizer, device)
@@ -189,6 +192,7 @@ def main():
 
         is_best = val_acc > best_val
         if is_best:
+            no_improve_epochs = 0
             best_val = val_acc
             save_path = ckpt_dir / f"{args.model}_best.pth"
             torch.save(
@@ -215,9 +219,9 @@ def main():
                 "params": n_params,
                 "model": args.model,
                 "best_val": best_val,
-            },
-            last_path,
-        )
+                },
+                last_path,
+            )
 
         epoch_record = {
             "epoch": epoch,
@@ -243,6 +247,11 @@ def main():
                     "elapsed_sec": elapsed,
                 }
             )
+        if not is_best:
+            no_improve_epochs += 1
+        if early_stop_patience > 0 and no_improve_epochs >= early_stop_patience:
+            print(f"Early stopping triggered (no improvement in {no_improve_epochs} epochs).")
+            break
 
     history_path = log_dir / f"{args.model}_history.json"
     save_history(history, history_path)

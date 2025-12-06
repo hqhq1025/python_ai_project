@@ -10,7 +10,7 @@
 ## 2. 快速检查
 - 验证包可用：`python -c "import cifar_compare; print(cifar_compare.__version__)"`
 
--## 3. 运行训练（示例）
+## 3. 运行训练（示例）
 - 小型 CNN smoke test：`python -m cifar_compare.train --model small_cnn --epochs 1 --batch-size 64 --device auto`
 - 正式跑 4 模型示例（每个建议至少跑 20 轮，统一 wandb）：
   - `python -m cifar_compare.train --model mlp --epochs 20 --batch-size 64 --device auto --wandb`
@@ -19,6 +19,7 @@
   - `python -m cifar_compare.train --model vit_b16 --epochs 20 --batch-size 64 --device auto --pretrained --freeze-backbone --wandb`
 - 指定数据目录（可选）：加 `--data-dir /path/to/datasets`
 - 设备说明：`--device auto|cpu|cuda|mps`，在 Mac M3 上建议 `--device mps`
+- 如果希望 20~30 轮自动提前结束，可加 `--early-stop-patience 5`
 
 ## 4. 结果汇总与绘图
 - 生成曲线与表格：`python -m cifar_compare.plot_results --log-dir outputs/logs --figure-dir outputs/figures`
