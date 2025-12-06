@@ -21,6 +21,9 @@ dependencies = [
 dev = [
   "pytest"
 ]
+logging = [
+  "wandb"
+]
 
 [tool.setuptools]
 package-dir = {"" = "src"}

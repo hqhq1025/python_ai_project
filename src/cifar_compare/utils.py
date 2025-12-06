@@ -10,10 +10,25 @@ import numpy as np
 import torch
 
 
-def get_device(prefer_gpu: bool = True) -> torch.device:
-    """Return CUDA device if available (and preferred), else CPU."""
+def get_device(device: str = "auto", prefer_gpu: bool = True) -> torch.device:
+    """
+    Select device.
+    device: "auto" | "cpu" | "cuda" | "mps".
+    prefer_gpu keeps backward compatibility for older callers.
+    """
+    device = device.lower()
+    if device == "cpu":
+        return torch.device("cpu")
+    if device == "cuda":
+        return torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    if device == "mps":
+        return torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+
+    # auto
     if prefer_gpu and torch.cuda.is_available():
         return torch.device("cuda")
+    if torch.backends.mps.is_available():
+        return torch.device("mps")
     return torch.device("cpu")
 
 
@@ -58,4 +73,3 @@ def dump_json(obj: Any, path: Path | str) -> None:
     ensure_dir(path.parent)
     with path.open("w", encoding="utf-8") as f:
         json.dump(obj, f, indent=2)
-

@@ -1,0 +1,8 @@
+torch
+torchvision
+matplotlib
+numpy
+tqdm
+
+[dev]
+pytest

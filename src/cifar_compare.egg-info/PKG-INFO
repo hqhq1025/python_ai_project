@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: cifar-compare
+Version: 0.0.1
+Summary: CIFAR-10 model comparison (MLP/CNN/ResNet/ViT)
+Author: project-team
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: torch
+Requires-Dist: torchvision
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: tqdm
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+
+# CIFAR-10 模型对比实验
+
+基于 PyTorch 的小型研究项目，对比 MLP / 小型 CNN / ResNet18 / ViT 在 CIFAR-10 上的分类效果。使用 `src/` 包结构，训练入口为 `python -m cifar_compare.train --model <name> ...`。
+
+## 快速开始
+
+```bash
+python -m pip install -e .[dev]
+python -m cifar_compare.train --model small_cnn --epochs 5 --batch-size 64 --use-gpu
+```
+
+更多模型名称与参数见 `python -m cifar_compare.train -h`。

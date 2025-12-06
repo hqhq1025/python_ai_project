@@ -94,14 +94,17 @@ def get_dataloaders(
     val_split: int = 5000,
     seed: int = 42,
     data_dir: str | Path | None = None,
-    pin_memory: bool | None = None,
 ) -> Tuple[DataLoader, DataLoader, DataLoader]:
     """
     Return train/val/test dataloaders for CIFAR-10.
 
     model_type: used to select transforms (cnn/resnet vs vit).
     """
-    root = Path(data_dir) if data_dir else Path.home() / ".torch" / "datasets"
+    if data_dir:
+        root = Path(data_dir)
+    else:
+        repo_local = Path(__file__).resolve().parent / "cifar-10-batches-py"
+        root = repo_local.parent if repo_local.exists() else Path.home() / ".torch" / "datasets"
     train_dataset, val_dataset = _build_train_val_datasets(root, model_type, val_split, seed)
 
     test_dataset = datasets.CIFAR10(
@@ -111,8 +114,7 @@ def get_dataloaders(
         transform=get_transforms(model_type, train=False),
     )
 
-    if pin_memory is None:
-        pin_memory = torch.cuda.is_available()
+    pin_memory = torch.cuda.is_available()
 
     train_loader = DataLoader(
         train_dataset,
@@ -136,4 +138,3 @@ def get_dataloaders(
         pin_memory=pin_memory,
     )
     return train_loader, val_loader, test_loader
-
