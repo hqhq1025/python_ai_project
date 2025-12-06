@@ -1,0 +1,32 @@
+[1/30] train_loss=0.2387 val_acc=0.9496 best_val=0.9496 time=162.3s
+[2/30] train_loss=0.1417 val_acc=0.9530 best_val=0.9530 time=166.9s
+[3/30] train_loss=0.1240 val_acc=0.9536 best_val=0.9536 time=233.4s
+[4/30] train_loss=0.1131 val_acc=0.9540 best_val=0.9540 time=249.5s
+[5/30] train_loss=0.1061 val_acc=0.9544 best_val=0.9544 time=237.8s
+[6/30] train_loss=0.0997 val_acc=0.9530 best_val=0.9544 time=141.7s
+[7/30] train_loss=0.0953 val_acc=0.9526 best_val=0.9544 time=140.1s
+[8/30] train_loss=0.0910 val_acc=0.9546 best_val=0.9546 time=141.1s
+[9/30] train_loss=0.0877 val_acc=0.9522 best_val=0.9546 time=140.6s
+[10/30] train_loss=0.0846 val_acc=0.9526 best_val=0.9546 time=140.5s
+[11/30] train_loss=0.0822 val_acc=0.9526 best_val=0.9546 time=233.3s
+[12/30] train_loss=0.0802 val_acc=0.9508 best_val=0.9546 time=230.5s
+[13/30] train_loss=0.0785 val_acc=0.9522 best_val=0.9546 time=179.6s
+[14/30] train_loss=0.0756 val_acc=0.9514 best_val=0.9546 time=141.9s
+[15/30] train_loss=0.0746 val_acc=0.9488 best_val=0.9546 time=185.0s
+[16/30] train_loss=0.0722 val_acc=0.9508 best_val=0.9546 time=150.3s
+[17/30] train_loss=0.0713 val_acc=0.9508 best_val=0.9546 time=139.7s
+[18/30] train_loss=0.0698 val_acc=0.9482 best_val=0.9546 time=144.0s
+[19/30] train_loss=0.0677 val_acc=0.9516 best_val=0.9546 time=141.8s
+[20/30] train_loss=0.0671 val_acc=0.9510 best_val=0.9546 time=144.3s
+[21/30] train_loss=0.0658 val_acc=0.9508 best_val=0.9546 time=144.1s
+[22/30] train_loss=0.0648 val_acc=0.9510 best_val=0.9546 time=150.1s
+[23/30] train_loss=0.0639 val_acc=0.9496 best_val=0.9546 time=188.2s
+[24/30] train_loss=0.0634 val_acc=0.9492 best_val=0.9546 time=157.3s
+[25/30] train_loss=0.0615 val_acc=0.9508 best_val=0.9546 time=139.9s
+[26/30] train_loss=0.0617 val_acc=0.9490 best_val=0.9546 time=139.9s
+[27/30] train_loss=0.0603 val_acc=0.9480 best_val=0.9546 time=142.2s
+[28/30] train_loss=0.0596 val_acc=0.9498 best_val=0.9546 time=140.2s
+[29/30] train_loss=0.0589 val_acc=0.9500 best_val=0.9546 time=139.8s
+[30/30] train_loss=0.0580 val_acc=0.9492 best_val=0.9546 time=140.9s
+Loaded best checkpoint from epoch 8 with val_acc=0.9546
+Test accuracy: 0.9551

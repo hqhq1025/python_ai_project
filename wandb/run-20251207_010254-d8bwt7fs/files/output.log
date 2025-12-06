@@ -1,0 +1,17 @@
+[31/40] train_loss=0.8935 val_acc=0.7846 best_val=0.9258 time=19.7s
+[32/40] train_loss=0.5495 val_acc=0.8372 best_val=0.9258 time=18.6s
+[33/40] train_loss=0.4453 val_acc=0.8492 best_val=0.9258 time=18.8s
+[34/40] train_loss=0.3858 val_acc=0.8716 best_val=0.9258 time=18.5s
+[35/40] train_loss=0.3373 val_acc=0.8896 best_val=0.9258 time=18.5s
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/root/autodl-tmp/python_ai_project/src/cifar_compare/train.py", line 284, in <module>
+    main()
+  File "/root/autodl-tmp/python_ai_project/src/cifar_compare/train.py", line 189, in main
+    train_loss = train_one_epoch(model, train_loader, optimizer, device)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/python_ai_project/src/cifar_compare/train.py", line 80, in train_one_epoch
+    inputs, targets = inputs.to(device), targets.to(device)
+                                         ^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

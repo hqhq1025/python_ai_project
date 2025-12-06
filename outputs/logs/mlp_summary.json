@@ -1,0 +1,9 @@
+{
+  "model": "mlp",
+  "params": 1841162,
+  "best_val": 0.446,
+  "test_acc": 0.4493,
+  "epochs": 30,
+  "batch_size": 64,
+  "lr": 0.001
+}

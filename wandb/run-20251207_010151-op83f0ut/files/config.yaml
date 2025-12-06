@@ -1,0 +1,80 @@
+_wandb:
+    value:
+        cli_version: 0.23.1
+        e:
+            4m8t30b0scc5h5izfay2whz7wc8btldw:
+                args:
+                    - --model
+                    - deep_cnn
+                    - --epochs
+                    - "40"
+                    - --batch-size
+                    - "64"
+                    - --device
+                    - cuda
+                    - --wandb
+                    - --resume
+                    - outputs/checkpoints/resnet18_last.pth
+                    - --early-stop-patience
+                    - "5"
+                cpu_count: 40
+                cpu_count_logical: 80
+                cudaVersion: "13.0"
+                disk:
+                    /:
+                        total: "32212254720"
+                        used: "5685825536"
+                email: 1506751656@qq.com
+                executable: /root/autodl-tmp/python_ai_project/.venv/bin/python
+                git:
+                    commit: fc9c1a2bd3ceba0c9f3aedb562e40d5d33975d05
+                    remote: git@github.com:hqhq1025/python_ai_project.git
+                gpu: NVIDIA A100-PCIE-40GB
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "42949672960"
+                      name: NVIDIA A100-PCIE-40GB
+                      uuid: GPU-e10b8b93-fe42-bf05-236a-811b45de013b
+                host: autodl-container-9ed51187fa-c6f1c537
+                memory:
+                    total: "676312465408"
+                os: Linux-5.15.0-86-generic-x86_64-with-glibc2.35
+                program: -m cifar_compare.train
+                python: CPython 3.12.3
+                root: /root/autodl-tmp/python_ai_project
+                startedAt: "2025-12-06T17:01:51.663179Z"
+                writerId: 4m8t30b0scc5h5izfay2whz7wc8btldw
+        m: []
+        python_version: 3.12.3
+        t:
+            "1":
+                - 1
+                - 41
+            "2":
+                - 1
+                - 41
+            "3":
+                - 13
+                - 16
+            "4": 3.12.3
+            "5": 0.23.1
+            "12": 0.23.1
+            "13": linux-x86_64
+batch_size:
+    value: 64
+device:
+    value: cuda
+epochs:
+    value: 40
+freeze_backbone:
+    value: false
+lr:
+    value: 0.001
+model:
+    value: deep_cnn
+pretrained:
+    value: false
+val_split:
+    value: 5000

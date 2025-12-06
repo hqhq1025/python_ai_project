@@ -1,0 +1,11 @@
+Resumed from outputs/checkpoints/deep_cnn_last.pth, start epoch = 31, best_val = 0.9044
+[31/40] train_loss=0.1176 val_acc=0.8962 best_val=0.9044 time=16.1s
+[32/40] train_loss=0.1118 val_acc=0.9112 best_val=0.9112 time=14.1s
+[33/40] train_loss=0.1075 val_acc=0.8938 best_val=0.9112 time=14.3s
+[34/40] train_loss=0.1118 val_acc=0.8972 best_val=0.9112 time=14.1s
+[35/40] train_loss=0.0998 val_acc=0.9052 best_val=0.9112 time=14.1s
+[36/40] train_loss=0.0899 val_acc=0.9068 best_val=0.9112 time=14.3s
+[37/40] train_loss=0.0864 val_acc=0.9004 best_val=0.9112 time=14.6s
+Early stopping triggered (no improvement in 5 epochs).
+Loaded best checkpoint from epoch 32 with val_acc=0.9112
+Test accuracy: 0.9058

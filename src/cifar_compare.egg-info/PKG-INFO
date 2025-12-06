@@ -12,6 +12,8 @@ Requires-Dist: numpy
 Requires-Dist: tqdm
 Provides-Extra: dev
 Requires-Dist: pytest; extra == "dev"
+Provides-Extra: logging
+Requires-Dist: wandb; extra == "logging"
 
 # CIFAR-10 模型对比实验
 

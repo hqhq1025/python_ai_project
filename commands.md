@@ -13,10 +13,11 @@
 ## 3. 运行训练（示例）
 - 小型 CNN smoke test：`python -m cifar_compare.train --model small_cnn --epochs 1 --batch-size 64 --device auto`
 - 正式跑 4 模型示例（每个建议至少跑 30 轮，统一 wandb）：
-  - `python -m cifar_compare.train --model mlp --epochs 30 --batch-size 64 --device auto --wandb`
-  - `python -m cifar_compare.train --model small_cnn --epochs 30 --batch-size 64 --device auto --wandb`
-  - `python -m cifar_compare.train --model resnet18 --epochs 30 --batch-size 64 --device auto --pretrained --wandb`
-  - `python -m cifar_compare.train --model vit_b16 --epochs 30 --batch-size 64 --device auto --pretrained --freeze-backbone --wandb`
+  - `python -m cifar_compare.train --model mlp --epochs 30 --batch-size 64 --device cuda --wandb`
+  - `python -m cifar_compare.train --model small_cnn --epochs 30 --batch-size 64 --device cuda --wandb`
+  - `python -m cifar_compare.train --model deep_cnn --epochs 30 --batch-size 64 --device cuda --wandb`
+  - `python -m cifar_compare.train --model resnet18 --epochs 30 --batch-size 64 --device cuda --pretrained --wandb`
+  - `python -m cifar_compare.train --model vit_b16 --epochs 30 --batch-size 64 --device cuda --pretrained --freeze-backbone --wandb`
 - 指定数据目录（可选）：加 `--data-dir /path/to/datasets`
 - 设备说明：`--device auto|cpu|cuda|mps`，在 Mac M3 上建议 `--device mps`
 - 如果希望 30+ 轮自动提前结束，可加 `--early-stop-patience 5`

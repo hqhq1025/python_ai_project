@@ -1,0 +1,32 @@
+[1/30] train_loss=1.7132 val_acc=0.4896 best_val=0.4896 time=14.7s
+[2/30] train_loss=1.2531 val_acc=0.6424 best_val=0.6424 time=12.2s
+[3/30] train_loss=1.0308 val_acc=0.6900 best_val=0.6900 time=12.7s
+[4/30] train_loss=0.8990 val_acc=0.7494 best_val=0.7494 time=12.0s
+[5/30] train_loss=0.8002 val_acc=0.7746 best_val=0.7746 time=12.3s
+[6/30] train_loss=0.7143 val_acc=0.7774 best_val=0.7774 time=12.2s
+[7/30] train_loss=0.6510 val_acc=0.8068 best_val=0.8068 time=21.4s
+[8/30] train_loss=0.5911 val_acc=0.8114 best_val=0.8114 time=12.7s
+[9/30] train_loss=0.5455 val_acc=0.8350 best_val=0.8350 time=12.2s
+[10/30] train_loss=0.5018 val_acc=0.8332 best_val=0.8350 time=12.4s
+[11/30] train_loss=0.4616 val_acc=0.8468 best_val=0.8468 time=17.7s
+[12/30] train_loss=0.4234 val_acc=0.8554 best_val=0.8554 time=12.1s
+[13/30] train_loss=0.3972 val_acc=0.8648 best_val=0.8648 time=11.9s
+[14/30] train_loss=0.3663 val_acc=0.8292 best_val=0.8648 time=10.6s
+[15/30] train_loss=0.3475 val_acc=0.8614 best_val=0.8648 time=13.2s
+[16/30] train_loss=0.3241 val_acc=0.8724 best_val=0.8724 time=12.4s
+[17/30] train_loss=0.2946 val_acc=0.8812 best_val=0.8812 time=12.5s
+[18/30] train_loss=0.2783 val_acc=0.8834 best_val=0.8834 time=12.2s
+[19/30] train_loss=0.2582 val_acc=0.8924 best_val=0.8924 time=12.2s
+[20/30] train_loss=0.2381 val_acc=0.8842 best_val=0.8924 time=17.3s
+[21/30] train_loss=0.2267 val_acc=0.8896 best_val=0.8924 time=12.4s
+[22/30] train_loss=0.2045 val_acc=0.8834 best_val=0.8924 time=12.4s
+[23/30] train_loss=0.1978 val_acc=0.8898 best_val=0.8924 time=12.1s
+[24/30] train_loss=0.1828 val_acc=0.8954 best_val=0.8954 time=13.6s
+[25/30] train_loss=0.1674 val_acc=0.8964 best_val=0.8964 time=12.3s
+[26/30] train_loss=0.1589 val_acc=0.8948 best_val=0.8964 time=12.3s
+[27/30] train_loss=0.1518 val_acc=0.9044 best_val=0.9044 time=12.1s
+[28/30] train_loss=0.1527 val_acc=0.8960 best_val=0.9044 time=12.3s
+[29/30] train_loss=0.1374 val_acc=0.9018 best_val=0.9044 time=12.5s
+[30/30] train_loss=0.1270 val_acc=0.8916 best_val=0.9044 time=12.3s
+Loaded best checkpoint from epoch 27 with val_acc=0.9044
+Test accuracy: 0.8984

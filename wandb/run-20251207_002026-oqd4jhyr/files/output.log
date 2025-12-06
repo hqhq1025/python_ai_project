@@ -1,0 +1,31 @@
+[2/30] train_loss=1.6033 val_acc=0.5720 best_val=0.5792 time=7.2s
+[3/30] train_loss=1.2292 val_acc=0.6524 best_val=0.6524 time=6.1s
+[4/30] train_loss=1.0821 val_acc=0.6784 best_val=0.6784 time=9.9s
+[5/30] train_loss=0.9875 val_acc=0.7216 best_val=0.7216 time=6.5s
+[6/30] train_loss=0.9393 val_acc=0.7348 best_val=0.7348 time=6.2s
+[7/30] train_loss=0.8952 val_acc=0.7474 best_val=0.7474 time=6.3s
+[8/30] train_loss=0.8703 val_acc=0.7566 best_val=0.7566 time=6.3s
+[9/30] train_loss=0.8393 val_acc=0.7588 best_val=0.7588 time=6.2s
+[10/30] train_loss=0.8160 val_acc=0.7662 best_val=0.7662 time=6.1s
+[11/30] train_loss=0.7946 val_acc=0.7668 best_val=0.7668 time=6.1s
+[12/30] train_loss=0.7821 val_acc=0.7796 best_val=0.7796 time=6.3s
+[13/30] train_loss=0.7695 val_acc=0.7800 best_val=0.7800 time=6.3s
+[14/30] train_loss=0.7560 val_acc=0.7874 best_val=0.7874 time=6.7s
+[15/30] train_loss=0.7435 val_acc=0.7878 best_val=0.7878 time=6.1s
+[16/30] train_loss=0.7294 val_acc=0.7948 best_val=0.7948 time=6.1s
+[17/30] train_loss=0.7227 val_acc=0.7918 best_val=0.7948 time=5.9s
+[18/30] train_loss=0.7216 val_acc=0.7940 best_val=0.7948 time=5.9s
+[19/30] train_loss=0.7046 val_acc=0.8098 best_val=0.8098 time=6.2s
+[20/30] train_loss=0.6980 val_acc=0.7958 best_val=0.8098 time=6.1s
+[21/30] train_loss=0.6847 val_acc=0.8060 best_val=0.8098 time=6.1s
+[22/30] train_loss=0.6891 val_acc=0.7996 best_val=0.8098 time=6.1s
+[23/30] train_loss=0.6814 val_acc=0.7994 best_val=0.8098 time=6.4s
+[24/30] train_loss=0.6770 val_acc=0.8084 best_val=0.8098 time=6.2s
+[25/30] train_loss=0.6684 val_acc=0.8030 best_val=0.8098 time=6.1s
+[26/30] train_loss=0.6627 val_acc=0.7902 best_val=0.8098 time=6.0s
+[27/30] train_loss=0.6645 val_acc=0.8188 best_val=0.8188 time=6.3s
+[28/30] train_loss=0.6538 val_acc=0.8142 best_val=0.8188 time=5.9s
+[29/30] train_loss=0.6520 val_acc=0.8164 best_val=0.8188 time=6.1s
+[30/30] train_loss=0.6454 val_acc=0.8114 best_val=0.8188 time=6.0s
+Loaded best checkpoint from epoch 27 with val_acc=0.8188
+Test accuracy: 0.8148

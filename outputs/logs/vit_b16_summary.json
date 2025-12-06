@@ -1,0 +1,9 @@
+{
+  "model": "vit_b16",
+  "params": 7690,
+  "best_val": 0.9546,
+  "test_acc": 0.9551,
+  "epochs": 30,
+  "batch_size": 64,
+  "lr": 0.001
+}

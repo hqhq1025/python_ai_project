@@ -1,0 +1,9 @@
+{
+  "model": "resnet18",
+  "params": 11173962,
+  "best_val": 0.9258,
+  "test_acc": 0.926,
+  "epochs": 30,
+  "batch_size": 64,
+  "lr": 0.001
+}

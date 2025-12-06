@@ -6,3 +6,6 @@ tqdm
 
 [dev]
 pytest
+
+[logging]
+wandb

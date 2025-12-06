@@ -1,0 +1,9 @@
+{
+  "model": "deep_cnn",
+  "params": 8702538,
+  "best_val": 0.9112,
+  "test_acc": 0.9058,
+  "epochs": 40,
+  "batch_size": 64,
+  "lr": 0.001
+}

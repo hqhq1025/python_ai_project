@@ -1,0 +1,1 @@
+{"epoch":30,"train_loss":0.0580046772280501,"_wandb":{"runtime":5006},"best_val":0.9546,"_timestamp":1.7650429546762302e+09,"params":7690,"test_acc":0.9551,"elapsed_sec":140.94264101982117,"_runtime":5006,"val_acc":0.9492,"_step":30}

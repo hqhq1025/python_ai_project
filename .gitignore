@@ -1,1 +1,5 @@
 .venv/*
+/outputs/checkpoints/*
+
+*.pyc
+__pycache__/

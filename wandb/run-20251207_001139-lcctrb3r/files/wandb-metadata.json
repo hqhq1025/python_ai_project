@@ -1,0 +1,49 @@
+{
+  "os":  "Linux-5.15.0-86-generic-x86_64-with-glibc2.35",
+  "python":  "CPython 3.12.3",
+  "startedAt":  "2025-12-06T16:11:39.923460Z",
+  "args":  [
+    "--model",
+    "mlp",
+    "--epochs",
+    "30",
+    "--batch-size",
+    "64",
+    "--device",
+    "auto",
+    "--wandb"
+  ],
+  "program":  "-m cifar_compare.train",
+  "git":  {
+    "remote":  "git@github.com:hqhq1025/python_ai_project.git",
+    "commit":  "fc9c1a2bd3ceba0c9f3aedb562e40d5d33975d05"
+  },
+  "email":  "1506751656@qq.com",
+  "root":  "/root/autodl-tmp/python_ai_project",
+  "host":  "autodl-container-9ed51187fa-c6f1c537",
+  "executable":  "/root/autodl-tmp/python_ai_project/.venv/bin/python",
+  "cpu_count":  40,
+  "cpu_count_logical":  80,
+  "gpu":  "NVIDIA A100-PCIE-40GB",
+  "gpu_count":  1,
+  "disk":  {
+    "/":  {
+      "total":  "32212254720",
+      "used":  "5324480512"
+    }
+  },
+  "memory":  {
+    "total":  "676312465408"
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "NVIDIA A100-PCIE-40GB",
+      "memoryTotal":  "42949672960",
+      "cudaCores":  6912,
+      "architecture":  "Ampere",
+      "uuid":  "GPU-e10b8b93-fe42-bf05-236a-811b45de013b"
+    }
+  ],
+  "cudaVersion":  "13.0",
+  "writerId":  "a0pt4rib9denqvaj1heypi8wp0uevzfd"
+}
