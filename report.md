@@ -1,11 +1,14 @@
 # CIFAR-10 模型对比实验报告
 
+**国际学院  物联网工程  王昊卿  2024213353**
+
 ## 1. 研究背景与问题
 - CIFAR-10 是计算机视觉中的经典 10 类图像分类基准，十分适合用来对比不同架构在归纳偏置与特征建模方面的能力。
 - 本报告重点回应以下问题：MLP 与 CNN 在空间建模上的差距；网络深度对性能、训练稳定性与过拟合的影响；残差结构带来的收敛加速；预训练 ViT 在小样本设置中的效用。
 - 所有实验统一基于 `src/cifar_compare/train.py` 的训练脚本，采用 PyTorch + torchvision 工具链，统一记录 `train_loss`、`val_acc`、`elapsed_sec`、参数量等指标，供后续分析与可视化参考（`outputs/logs/*_history.json`、`outputs/logs/*_summary.json`、`outputs/figures`）。
 
 ## 2. 数据与处理规范
+
 ### 2.1 训练/验证/测试划分
 - 训练集 50,000 张，按照 45,000/5,000 为 train/val；测试集 10,000 张保持官方划分。
 
@@ -23,6 +26,7 @@
 - 所有模型共享同一训练/验证脚本与 logging 方案，确保结果比较的一致性。
 
 ## 4. 实验结果速览
+
 | 模型 | 参数量 | 最佳 Val Acc | Test Acc | Epochs | Batch Size | LR |
 | --- | --- | --- | --- | --- | --- | --- |
 | deep_cnn | 8,702,538 | 0.9112 | 0.9058 | 40 | 64 | 0.001 |
@@ -31,12 +35,11 @@
 | small_cnn | 2,193,226 | 0.8188 | 0.8148 | 30 | 64 | 0.001 |
 | vit_b16 | 7,690 | 0.9546 | 0.9551 | 30 | 64 | 0.001 |
 
-完整结果表也同步保存在 `outputs/figures/results_table.md`，可直接用于 PPT 与总结材料。
-
 ## 5. 曲线行为、资源消耗与待解问题
+
 ### 5.1 验证精度曲线
 ![Val Accuracy 曲线](outputs/figures/val_acc.png)
-- ViT 与 ResNet 的 val acc 在前 10 个 epoch 就超过 0.92，并迅速趋于平稳；DeepCNN 到 90% 左右徘徊，而 SmallCNN/MLP 明显滞后（分别在 0.82 与 0.44 上方），再次体现卷积与残差的 inductive bias。This plateau also suggests diminishing returns beyond 30 epochs for most conv-based models.
+- ViT 与 ResNet 的 val acc 在前 10 个 epoch 就超过 0.92，并迅速趋于平稳；DeepCNN 到 90% 左右徘徊，而 SmallCNN/MLP 明显滞后（分别在 0.82 与 0.44 上方），再次体现卷积与残差的 inductive bias。
 
 ### 5.2 损失下降与时间成本
 ![Train Loss 曲线](outputs/figures/train_loss.png)
@@ -44,6 +47,7 @@
 - `outputs/logs/*_history.json` 的 `elapsed_sec` 显示 DeepCNN 每轮约 12~14 秒、ResNet 约 18 秒、SmallCNN/MLP 仅 6~8 秒，ViT 由于 patch/resize 代价每轮需 140~220 秒，为预训练方案付出了明显成本。
 
 ### 5.3 值得进一步探索的问题
+
 - **SmallCNN 精度瓶颈**：虽然 SmallCNN 训练速度快，但 val/test acc 仍低于 ResNet。可能需要在结构上增加通道/多尺度卷积，或引入更完善的正则化（如更强的 Dropout/LayerNorm）以提高泛化。
 - **ViT 资源优化**：ViT 在早期即达高精度，但耗时极大。可尝试降低输入分辨率（如 160×160 + patch 16）或对 head 做剪枝，以换取更短的 epoch。
 - **模型稳定性**：比较 `deep_cnn_history.json` 与 `resnet18_history.json` 的 val acc 波动，发现 ResNet 波动更小，说明残差有助于抑制不稳定梯度；可以进一步对比同一 epoch 的梯度范数与学习率变化。
@@ -53,15 +57,16 @@
 - **训练效率**：SmallCNN/MLP 每轮仅 6~8 秒，适合初步迭代；ResNet 30 轮约需 9 分钟，精度与成本保持平衡；ViT 每轮消耗 2.5~4 分钟，需要额外的计算资源但提供最优 test accuracy。
 
 ## 7. WandB 仪表盘的多维视角
+
 ![WandB 仪表盘](wandb.png)
 ### 7.1 主要观察点
 - 仪表盘左上 `val_acc` 曲线重复了前述趋势，验证 ViT/ResNet 领先、SmallCNN/MLP 滞后的层级关系。
 - 左中 `train_loss` 与右上 `test_acc` 组合说明训练速度与泛化能力的对应关系：loss 降得快的 ViT/ResNet 同样拥有最高 test score，而 SmallCNN 尽管 loss 下降较缓，但 test acc 仍停留在 0.81，提示网络表征还有提升空间。
 - 左下 `params` 与中下 `epoch` 显示各模型的复杂度与训练跨度，ResNet/DeepCNN 参数多、训练时间长，而 ViT 通过预训练极大简化了参数负担。
 - 右下 `elapsed_sec` 曲线凸显 ViT 预训练的耗时（140~220 s/epoch），SmallCNN/MLP 每轮 6~8 秒适合快速实验，DeepCNN/ResNet 处于两者之间，是精度与效率的折中。
-- 该仪表盘将 val/train/test、参数量、耗时等维度统一呈现，可直接用于向非技术受众展示模型对比，也适合嵌入 PPT 做宏观对比页。
 
-## 8. 结论与下一步
+## 8. 结论
+
 ### 8.1 归纳偏置与泛化壁垒
 仅依赖全连接层的 MLP 即便训练 30 轮也只能在测试集上取得 44.9%，证明完全放弃邻域结构将导致特征组合效率极低。尽管 SmallCNN 拥有卷积操作，其浅层 + 少量滤波器使其只能建模局部纹理，缺乏多尺度感受野与丰富的正则化（BN、Dropout），导致泛化能力仍比 ResNet/ViT 落后 10~12 个百分点。
 
@@ -69,6 +74,7 @@
 DeepCNN 体量达 8.7M，但未引入残差时训练曲线延续 40 轮才达 91.1%，训练速度慢且对超参敏感，容易在 val 端出现震荡。ResNet18 借助 identity shortcut 让梯度可以跨层传播，30 轮即可稳定在 92.6% val acc，train loss 也降至 0.062，充分说明残差结构不仅加速收敛，也显著缓解深层网络的稳定性问题，使得测试精度相比 DeepCNN 高约 2.1%。
 
 ### 8.3 预训练 Transformer 的价值与代价
+
 ViT-B/16 只训练 7,690 参数的 head，却能通过预训练 feature reuse 将 val/test 推到 95.5% 左右，验证了在有限数据下导入自注意力与大规模预训练是提升表现的捷径。其代价表现为每轮训练需 140~220 秒、较高的内存/resize 需求，说明即使在小模型上拿到高精度也必须配套更多的 compute 与更大的输入尺寸（224×224）。
 
 
@@ -94,3 +100,5 @@ ViT-B/16 只训练 7,690 参数的 head，却能通过预训练 feature reuse �
 
 注:
 本次实验的数据、图表与日志均存放于 `outputs/figures`、`outputs/logs` 与 `wandb/run-*`，便于后续复现或扩展。
+
+代码已在 https://github.com/hqhq1025/python_ai_project 中开源
